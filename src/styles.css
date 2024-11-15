@@ -71,6 +71,8 @@ img {
   outline: 3px solid fuchsia;
 
   z-index: 100;
+
+  overflow: hidden;
 }
 
 .wide {
