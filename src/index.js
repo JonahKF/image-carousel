@@ -13,8 +13,7 @@ const frameController = () => {
 
   const indicators = document.querySelectorAll(".indicator");
 
-  // Change margin-left on imgReelDiv on button clicks (negative scrolls right)
-  leftBtn.addEventListener("click", () => {
+  const previousSlide = () => {
     if (currentMarginLeft * -1 > 0) {
       currentMarginLeft = currentMarginLeft + 400;
       imgReelDiv.style.marginLeft = currentMarginLeft + "px";
@@ -24,9 +23,9 @@ const frameController = () => {
       imgReelDiv.style.marginLeft = currentMarginLeft + "px";
       setActiveIndicator();
     }
-  });
+  };
 
-  rightBtn.addEventListener("click", () => {
+  const nextSlide = () => {
     if (currentMarginLeft >= (imgCount - 2) * 400 * -1) {
       currentMarginLeft = currentMarginLeft - 400;
       imgReelDiv.style.marginLeft = currentMarginLeft + "px";
@@ -39,6 +38,15 @@ const frameController = () => {
       console.log(`Current margin is: ${currentMarginLeft}`);
       console.log(`Testing against: ${(imgCount - 2) * 400 * -1}`);
     }
+  };
+
+  // Change margin-left on imgReelDiv on button clicks (negative scrolls right)
+  leftBtn.addEventListener("click", () => {
+    previousSlide();
+  });
+
+  rightBtn.addEventListener("click", () => {
+    nextSlide();
   });
 
   indicators.forEach((indicator, index) => {
