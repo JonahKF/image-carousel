@@ -107,8 +107,17 @@ img {
 
 .indicator {
   font-size: 0.4rem;
-  color: ivory;
+  color: #aaa2ae;
   cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.indicator.active {
+  font-size: 0.6rem;
+  color: #fff;
+
+  transition: 0.3s;
 }
 
 .left-btn {
