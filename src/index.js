@@ -13,7 +13,15 @@ const frameController = () => {
 
   // Change margin-left on imgReelDiv on button clicks (negative scrolls right)
   leftBtn.addEventListener("click", () => {
-    console.log("Left button pressed");
+    if (currentMarginLeft * -1 > 0) {
+      currentMarginLeft = currentMarginLeft + 400;
+      imgReelDiv.style.marginLeft = currentMarginLeft + "px";
+      console.log(currentMarginLeft);
+    } else if (currentMarginLeft === 0) {
+      currentMarginLeft = (imgCount - 1) * 400 * -1;
+      imgReelDiv.style.marginLeft = currentMarginLeft + "px";
+      console.log(currentMarginLeft);
+    }
   });
 
   rightBtn.addEventListener("click", () => {
