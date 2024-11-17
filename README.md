@@ -1,3 +1,5 @@
-# template
+# Image Carousel
 
-Template repo for The Odin Project lessons. Created during the "Revisiting Webpack" lesson.
+Created for The Odin Project, dynamic JS elements lesson.
+Carousel has buttons for scrolling left and right, and indicator dots.
+Indicator dots can be clicked to instantly move to corresponding img.
