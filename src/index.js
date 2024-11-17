@@ -53,7 +53,12 @@ const frameController = () => {
     indicator.id = index;
 
     // Add functions for clicking indicators, use indicator ID to parse
-    // Placeholder
+    indicator.addEventListener("click", () => {
+      const idAsInt = parseInt(indicator.id);
+      currentMarginLeft = idAsInt * 400 * -1;
+      imgReelDiv.style.marginLeft = currentMarginLeft + "px";
+      setActiveIndicator();
+    });
   });
 
   const setActiveIndicator = () => {
