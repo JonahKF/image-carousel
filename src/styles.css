@@ -167,3 +167,16 @@ button {
   font-size: 1.3rem;
   cursor: inherit;
 }
+
+.indicator-box,
+.left-btn,
+.right-btn {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: auto;
+}

@@ -11,6 +11,7 @@ const frameController = () => {
   const leftBtn = document.querySelector(".left-btn");
   const rightBtn = document.querySelector(".right-btn");
 
+  const indicatorBox = document.querySelector(".indicator-box");
   const indicators = document.querySelectorAll(".indicator");
 
   const previousSlide = () => {
@@ -40,7 +41,6 @@ const frameController = () => {
     }
   };
 
-  // Change margin-left on imgReelDiv on button clicks (negative scrolls right)
   leftBtn.addEventListener("click", () => {
     previousSlide();
   });
@@ -51,6 +51,9 @@ const frameController = () => {
 
   indicators.forEach((indicator, index) => {
     indicator.id = index;
+
+    // Add functions for clicking indicators, use indicator ID to parse
+    // Placeholder
   });
 
   const setActiveIndicator = () => {
@@ -63,6 +66,19 @@ const frameController = () => {
   };
 
   setActiveIndicator();
+
+  // Add listeners to make buttons, indicators visible only on mouseover
+  frame.addEventListener("mouseenter", () => {
+    indicatorBox.classList.add("visible");
+    leftBtn.classList.add("visible");
+    rightBtn.classList.add("visible");
+  });
+
+  frame.addEventListener("mouseleave", () => {
+    indicatorBox.classList.remove("visible");
+    leftBtn.classList.remove("visible");
+    rightBtn.classList.remove("visible");
+  });
 };
 
 frameController();
