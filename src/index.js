@@ -43,10 +43,12 @@ const frameController = () => {
 
   leftBtn.addEventListener("click", () => {
     previousSlide();
+    startAutoScroll();
   });
 
   rightBtn.addEventListener("click", () => {
     nextSlide();
+    startAutoScroll();
   });
 
   indicators.forEach((indicator, index) => {
@@ -58,6 +60,7 @@ const frameController = () => {
       currentMarginLeft = idAsInt * 400 * -1;
       imgReelDiv.style.marginLeft = currentMarginLeft + "px";
       setActiveIndicator();
+      startAutoScroll();
     });
   });
 
@@ -84,6 +87,17 @@ const frameController = () => {
     leftBtn.classList.remove("visible");
     rightBtn.classList.remove("visible");
   });
+
+  // Autoscroll functionality
+  let autoScrollInterval;
+
+  const startAutoScroll = () => {
+    clearInterval(autoScrollInterval);
+    // console.log("Countdown reset");
+    autoScrollInterval = setInterval(nextSlide, 5000);
+  };
+
+  startAutoScroll();
 };
 
 frameController();
